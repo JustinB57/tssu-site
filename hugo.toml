@@ -1,7 +1,7 @@
-﻿baseURL = 'https://tssu.info/'
+baseURL = 'https://tssu.info/'
 languageCode = 'en-us'
 defaultContentLanguage = 'en'
-title = 'Teamsters Support Staff Union'
+title = 'TSSU'
 
 [markup.highlight]
 noclasses = false
