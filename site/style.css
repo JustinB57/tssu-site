@@ -1,0 +1,250 @@
+/* ===========================================================
+   Teamsters Support Staff Union — shared styles
+   Brand: black (#0a0a0a), hot pink (#EE3FA8), white
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Archivo+Black&display=swap');
+
+:root {
+  --pink: #EE3FA8;
+  --pink-dark: #c92b8a;
+  --black: #0a0a0a;
+  --ink: #161616;
+  --white: #ffffff;
+  --gray: #6b6b6b;
+  --light: #f5f5f5;
+  --max: 1100px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Archivo', sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: 'Archivo Black', 'Archivo', sans-serif;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+a { color: var(--pink-dark); }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: var(--black);
+  border-bottom: 4px solid var(--pink);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand img { height: 64px; width: auto; display: block; }
+.header-right { display: flex; align-items: center; gap: 1.75rem; }
+.main-nav { display: flex; gap: 1.5rem; align-items: center; }
+.main-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  transition: color 0.15s;
+}
+.main-nav a:hover { color: var(--pink); }
+.nav-cta {
+  background: var(--pink);
+  color: var(--white) !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2px;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--white); color: var(--black) !important; }
+.ibt-seal { height: 58px; width: auto; display: block; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  background: var(--black);
+  color: var(--white);
+  overflow: hidden;
+  padding: 6rem 1.5rem 7rem;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(238,63,168,0.35), transparent 55%),
+    radial-gradient(circle at 10% 90%, rgba(238,63,168,0.18), transparent 50%);
+  z-index: 0;
+}
+.hero-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.hero .eyebrow {
+  display: inline-block;
+  background: var(--pink);
+  color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  max-width: 16ch;
+  margin-bottom: 1.5rem;
+}
+.hero h1 .pink { color: var(--pink); }
+.hero p {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  max-width: 60ch;
+  margin-bottom: 1.25rem;
+  color: #e6e6e6;
+}
+.hero-actions { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  font-size: 1rem;
+  transition: transform 0.1s, background 0.15s, color 0.15s;
+  border: 3px solid var(--pink);
+}
+.btn-primary { background: var(--pink); color: var(--white); }
+.btn-primary:hover { background: var(--pink-dark); border-color: var(--pink-dark); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--white); }
+.btn-outline:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+
+/* ---------- Sections ---------- */
+.section { padding: 5rem 1.5rem; }
+.section-inner { max-width: var(--max); margin: 0 auto; }
+.section h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+.section h2::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 80px; height: 6px;
+  background: var(--pink);
+}
+.section.alt { background: var(--light); }
+.lead { font-size: 1.2rem; max-width: 65ch; margin-bottom: 1.5rem; }
+
+/* ---------- Card grid ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.card {
+  background: var(--white);
+  border: 2px solid #e3e3e3;
+  border-top: 6px solid var(--pink);
+  padding: 2rem 1.75rem;
+  border-radius: 2px;
+}
+.section.alt .card { background: var(--white); }
+.card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+.card p { color: #444; font-size: 1rem; }
+
+/* ---------- CTA band ---------- */
+.cta-band {
+  background: var(--pink);
+  color: var(--white);
+  text-align: center;
+  padding: 5rem 1.5rem;
+}
+.cta-band h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; }
+.cta-band h2::after { display: none; }
+.cta-band p { font-size: 1.2rem; max-width: 55ch; margin: 0 auto 2.5rem; }
+.cta-band .btn-primary { background: var(--black); border-color: var(--black); }
+.cta-band .btn-primary:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--black);
+  color: #cfcfcf;
+  padding: 3rem 1.5rem;
+}
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-inner a { color: var(--pink); text-decoration: none; }
+.footer-inner a:hover { text-decoration: underline; }
+.footer-seal { height: 70px; width: auto; background: #fff; padding: 6px; border-radius: 4px; }
+.footer-note { font-size: 0.85rem; color: #8a8a8a; max-width: 50ch; }
+
+/* ---------- FAQ ---------- */
+.faq-item {
+  border-bottom: 2px solid #e3e3e3;
+  padding: 1.5rem 0;
+}
+.faq-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--black);
+  text-transform: none;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.faq-item p { color: #444; }
+.page-hero {
+  background: var(--black);
+  color: var(--white);
+  padding: 4rem 1.5rem;
+  border-bottom: 4px solid var(--pink);
+}
+.page-hero-inner { max-width: var(--max); margin: 0 auto; }
+.page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+.page-hero .pink { color: var(--pink); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .header-inner { flex-wrap: wrap; }
+  .main-nav { gap: 1rem; font-size: 0.8rem; }
+  .ibt-seal { height: 46px; }
+  .brand img { height: 48px; }
+  .header-right { gap: 1rem; }
+  .hero { padding: 4rem 1.5rem 5rem; }
+}
