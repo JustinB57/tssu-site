@@ -246,55 +246,46 @@ a { color: var(--pink-dark); }
 .faq-item p { color: #444; }
 
 /* ---------- Testimonial / pull-quote ---------- */
-.testimonial {
-  max-width: 820px;
-  margin: 0 auto;
-  position: relative;
-  padding: 1rem 0 0 3.5rem;
+.testimonial-section {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(238,63,168,0.22), transparent 60%),
+    linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%);
+  color: #fff;
+  padding: 6rem 1.5rem;
 }
-.testimonial::before {
-  content: "\201C";
-  position: absolute;
-  left: -0.5rem;
-  top: -1.5rem;
-  font-family: Georgia, serif;
-  font-size: 7rem;
-  line-height: 1;
-  color: var(--pink);
+.testimonial {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
 }
 .testimonial blockquote {
-  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-  line-height: 1.5;
+  font-size: clamp(1.2rem, 2.3vw, 1.6rem);
+  line-height: 1.6;
+  font-style: italic;
   font-weight: 400;
-  color: var(--ink);
+  color: #f2f2f2;
   border: none;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 2.5rem 0;
   padding: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 .testimonial .attribution {
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: var(--black);
-  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  font-size: 1.05rem;
 }
+.testimonial .attribution .pink-dash { color: var(--pink); }
 .testimonial .attribution .role {
   display: block;
   font-weight: 400;
   text-transform: none;
   letter-spacing: 0;
-  color: var(--gray);
-  font-size: 0.95rem;
-  margin-top: 0.25rem;
-}
-.testimonial .attribution::before {
-  content: "";
-  display: inline-block;
-  width: 40px;
-  height: 4px;
-  background: var(--pink);
-  vertical-align: middle;
-  margin-right: 0.75rem;
+  color: #c9c9c9;
+  font-size: 0.98rem;
+  margin-top: 0.4rem;
+  line-height: 1.4;
 }
 .page-hero {
   background: var(--black);
