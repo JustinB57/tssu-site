@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up — Teamsters Support Staff Union</title>
-  <meta name="description" content="Add your name and join Penn State support staff organizing with the Teamsters. Your information is kept confidential.">
+  <title>Events — Teamsters Support Staff Union</title>
+  <meta name="description" content="Upcoming events and meetings for Penn State support staff organizing with the Teamsters. See what's coming up and RSVP.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,30 +32,59 @@
   <!-- Page hero -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <h1>Join the <span class="pink">Movement</span></h1>
+      <h1>Upcoming <span class="pink">Events</span></h1>
     </div>
   </section>
 
-  <!-- Sign up form -->
+  <!-- Calendar -->
   <section class="section">
-    <div class="section-inner" style="max-width: 760px;">
-      <p class="lead">WE ARE Penn State Teamsters. Lets Get the pay, Protection and Voice We Deserve. Join thousands of your coworkers organizing for better wages and job security. It only takes a minute.</p>
-      <p style="background:#f5f5f5; border-left:6px solid var(--pink); padding:1rem 1.25rem; margin-bottom:2.5rem; font-size:0.98rem;">
-        <strong>Your information is confidential.</strong> Signing up shows your support — it is not a public declaration, and your details are not shared with your employer.
-      </p>
+    <div class="section-inner">
+      <p class="lead">See what's coming up &mdash; meetings, actions, and ways to get involved. Check back often, and RSVP below so we know to expect you.</p>
 
-      <!-- Tally embed -->
+      <!-- Featured event flyer -->
+      <div class="featured-event">
+        <span class="featured-label">Featured Event</span><br>
+        <img src="images/featured-event.jpg" alt="Penn State Support Staff Park Tour — Tom Tudek Park, Friday June 12th, 3pm to 6pm. Family friendly. RSVP. Drop by anytime.">
+      </div>
+
+      <!-- ============================================================
+           GOOGLE CALENDAR EMBED
+           Replace the src URL below with YOUR calendar's embed code.
+           In Google Calendar: Settings > [your calendar] > Integrate calendar
+           > copy the "Embed code" iframe, and paste its src here.
+           The placeholder below will show an empty calendar until replaced.
+           ============================================================ -->
+      <div class="calendar-wrap">
+        <iframe
+          src="https://calendar.google.com/calendar/embed?src=00e264d2295a8824a5c22179fbca9939f0c7215472ca63a41226320ed2a609fd%40group.calendar.google.com&ctz=America%2FNew_York"
+          style="border:0"
+          width="100%"
+          height="600"
+          frameborder="0"
+          scrolling="no"
+          title="TSSU Events Calendar">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="section alt" id="rsvp">
+    <div class="section-inner" style="max-width: 760px;">
+      <h2>RSVP for an Event</h2>
+      <p class="lead">Planning to attend? Let us know you're coming so we can expect you.</p>
+
+      <!-- Tally RSVP embed -->
       <iframe
-        data-tally-src="https://tally.so/embed/A7yMvW?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        data-tally-src="https://tally.so/embed/1A6qK1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
         loading="lazy"
         width="100%"
-        height="500"
+        height="400"
         frameborder="0"
         marginheight="0"
         marginwidth="0"
-        title="Teamsters Support Staff Union Sign-Up Form">
+        title="Event RSVP Form">
       </iframe>
-
     </div>
   </section>
 

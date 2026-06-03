@@ -245,6 +245,34 @@ a { color: var(--pink-dark); }
 }
 .faq-item p { color: #444; }
 
+/* ---------- Resource list ---------- */
+.resource-list {
+  list-style: none;
+  margin-top: 2rem;
+}
+.resource-list li {
+  border-bottom: 2px solid #e3e3e3;
+  border-left: 6px solid var(--pink);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  background: var(--light);
+  border-radius: 2px;
+}
+.resource-list a {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--black);
+  text-decoration: none;
+  display: inline-block;
+}
+.resource-list a:hover { color: var(--pink-dark); text-decoration: underline; }
+.resource-list .resource-note {
+  display: block;
+  color: var(--gray);
+  font-size: 0.98rem;
+  margin-top: 0.4rem;
+}
+
 /* ---------- Testimonial / pull-quote ---------- */
 .testimonial-section {
   background:
@@ -296,6 +324,42 @@ a { color: var(--pink-dark); }
 .page-hero-inner { max-width: var(--max); margin: 0 auto; }
 .page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
 .page-hero .pink { color: var(--pink); }
+
+/* ---------- Calendar embed ---------- */
+.calendar-wrap {
+  margin-top: 2rem;
+  border: 2px solid #e3e3e3;
+  border-top: 6px solid var(--pink);
+  border-radius: 2px;
+  overflow: hidden;
+  background: #fff;
+}
+.calendar-wrap iframe { display: block; }
+
+/* ---------- Featured event flyer ---------- */
+.featured-event {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.featured-event img {
+  max-width: 460px;
+  width: 100%;
+  height: auto;
+  border: 3px solid var(--pink);
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+.featured-event .featured-label {
+  display: inline-block;
+  background: var(--pink);
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  margin-bottom: 1.5rem;
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 720px) {
