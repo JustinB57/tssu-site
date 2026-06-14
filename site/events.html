@@ -88,7 +88,41 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Past events -->
+  <section class="section" id="past-events">
+    <div class="section-inner">
+      <h2>Past Events</h2>
+
+      <div class="past-event">
+        <h3>State College Pride 2026</h3>
+        <p class="event-date">June 13, 2026</p>
+        <p class="event-desc">Teamsters Support Staff Union members marched in State College Pride 2026, carrying our banner through downtown to show that support staff stand with our LGBTQ+ coworkers and community. It was a colorful, energetic day of solidarity &mdash; and a great chance to meet neighbors and spread the word about our organizing effort.</p>
+        <div class="photo-grid">
+          <img src="images/pride2026/pride-0.jpg" alt="TSSU members holding the union banner at State College Pride 2026" loading="lazy">
+          <img src="images/pride2026/pride-1.jpg" alt="TSSU marching past the State Theatre at Pride 2026" loading="lazy">
+          <img src="images/pride2026/pride-2.jpg" alt="TSSU members with banner and raised fists at Pride 2026" loading="lazy">
+          <img src="images/pride2026/pride-3.jpg" alt="TSSU marching with banner on a tree-lined street" loading="lazy">
+          <img src="images/pride2026/pride-4.jpg" alt="TSSU members marching with the union banner" loading="lazy">
+          <img src="images/pride2026/pride-5.jpg" alt="TSSU contingent marching at Pride 2026" loading="lazy">
+          <img src="images/pride2026/pride-6.jpg" alt="TSSU members marching down the street at Pride" loading="lazy">
+          <img src="images/pride2026/pride-7.jpg" alt="TSSU marching with supporters at Pride 2026" loading="lazy">
+          <img src="images/pride2026/pride-8.jpg" alt="TSSU members behind the union banner" loading="lazy">
+          <img src="images/pride2026/pride-9.jpg" alt="TSSU members at the front of the banner" loading="lazy">
+          <img src="images/pride2026/pride-10.jpg" alt="TSSU members carrying the banner through the parade" loading="lazy">
+          <img src="images/pride2026/pride-11.jpg" alt="TSSU marching toward downtown State College" loading="lazy">
+          <img src="images/pride2026/pride-12.jpg" alt="Festive costumes at State College Pride 2026" loading="lazy">
+          <img src="images/pride2026/pride-13.jpg" alt="Scenes from the State College Pride 2026 parade" loading="lazy">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Enlarged event photo" id="lightbox-img">
+  </div>
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
@@ -106,6 +140,24 @@
   <!-- Tally embed loader script -->
   <script>
     var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+  </script>
+
+  <!-- Photo lightbox script -->
+  <script>
+    (function(){
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      document.querySelectorAll('.photo-grid img').forEach(function(img){
+        img.addEventListener('click', function(){
+          lbImg.src = this.src;
+          lbImg.alt = this.alt;
+          lb.classList.add('open');
+        });
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') lb.classList.remove('open');
+      });
+    })();
   </script>
 
 </body>
