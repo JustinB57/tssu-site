@@ -64,11 +64,62 @@
     </div>
   </section>
 
-  <!-- Member testimonial -->
-  <section class="testimonial-section">
-    <div class="testimonial">
-      <blockquote>"Joining the Teamsters would benefit staff in many ways. As the prices of everything increase exponentially more than our annual salary increases, we are effectively taking pay cuts. Salary increases that even attempt to keep up with inflation can only be achieved through collective bargaining, which the Teamsters demonstrated with their most recent contract, providing all union workers with a 20 percent wage increase over four years. Additionally, the Teamsters provide job security &mdash; something we currently have none of &mdash; and advancement opportunities through bidding. I can&rsquo;t wait for all of us to join the Teamsters and collectively bargain for what we deserve."</blockquote>
-      <p class="attribution"><span class="pink-dash">&mdash;</span> Jessie Jenkins<span class="role">Library Services Associate at<br>University Park Campus</span></p>
+  <!-- Member testimonials (rotating carousel) -->
+  <section class="testimonial-section" aria-roledescription="carousel" aria-label="Quotes from coworkers">
+    <div class="testimonial-carousel">
+      <div class="tc-viewport" id="tc-viewport" aria-live="off">
+
+        <!-- 1 — Jessie -->
+        <figure class="testimonial tc-slide is-active">
+          <blockquote>
+            <p>"Joining the Teamsters would benefit staff in many ways. As the prices of everything increase exponentially more than our annual salary increases, we are effectively taking pay cuts. Salary increases that even attempt to keep up with inflation can only be achieved through collective bargaining, which the Teamsters demonstrated with their most recent contract, providing all union workers with a 20 percent wage increase over four years. Additionally, the Teamsters provide job security &mdash; something we currently have none of &mdash; and advancement opportunities through bidding. I can&rsquo;t wait for all of us to join the Teamsters and collectively bargain for what we deserve."</p>
+          </blockquote>
+          <figcaption class="attribution"><span class="pink-dash">&mdash;</span> Jessie Jenkins<span class="role">Library Services Associate, University Park Campus</span></figcaption>
+        </figure>
+
+        <!-- 2 — Lauren -->
+        <figure class="testimonial tc-slide">
+          <blockquote>
+            <p>"During the Comp Mod and pandemic, my department merged with several others, leaving my coworkers and I with more and more duties. As HR finally made their Comp Mod decisions with vague job profiles and the loss of JRWs, we have been left overworked and underpaid. Appeals got nowhere.</p>
+            <p>The mere chance at yearly salary increases depends on goals that we are told should have nothing to do with our regular duties, forcing us to do stressful additional projects that take away from our actual job, all just to try to keep up with inflation.</p>
+            <p>As things are, I&rsquo;ve had little hope of ever owning a home or being able to support a family.</p>
+            <p>Publicly available union contracts show similar jobs are paid better, even in areas with a lower cost of living. The Tech Service employees here at Penn State are doing well, with the contract that the Teamsters helped with.</p>
+            <p>We need to be united to demand better treatment &mdash; to be able to collectively bargain for actual job security, fair pay based on defined duties, and dependable salary increases."</p>
+          </blockquote>
+          <figcaption class="attribution"><span class="pink-dash">&mdash;</span> Lauren Seiders<span class="role">Library Services Associate, University Park Campus</span></figcaption>
+        </figure>
+
+        <!-- 3 — Heather -->
+        <figure class="testimonial tc-slide">
+          <blockquote>
+            <p>"I support the staff organizing movement to promote fair compensation."</p>
+          </blockquote>
+          <figcaption class="attribution"><span class="pink-dash">&mdash;</span> Heather Taylor<span class="role">Academic Program Coordinator, University Park Campus</span></figcaption>
+        </figure>
+
+        <!-- 4 — Zachary -->
+        <figure class="testimonial tc-slide">
+          <blockquote>
+            <p>"In my time working at Penn State I have heard of benefits being slowly eroded away by veteran staff. Parking was free, one could retire after 25 years of service with lifetime benefits, and wages better matched the cost of living. Now what started as an assessment fee for parking is permanent and keeps growing, and those hired more recently can no longer secure health insurance through Penn State for life, while staff struggle more and more each year to make basic ends meet with retirement goals, healthy groceries, child daycare, or housing expenses. A worker quits under the pressure and another worker is forced to take on the extra load with no change in compensation. Recent OST efforts have taken great advantage of this and staff (while not laid off) numbers continue to decline. It&rsquo;s really about extracting as much work as they can from a single worker to increase profits and reduce costs. We want restoration of benefits and fair compensation of our value. But what force on earth is weaker than the feeble strength of one? The union is our only avenue of opportunity. Without it, our benefits and quality of life will continue to decline while they pat us on the back and tell us how valuable and critical we are to the mission. There&rsquo;s a power, there&rsquo;s a power in a band of working folk, when we stand hand-in-hand."</p>
+          </blockquote>
+          <figcaption class="attribution"><span class="pink-dash">&mdash;</span> Zachary McClure<span class="role">Penn State IT Support Specialist</span></figcaption>
+        </figure>
+
+      </div>
+
+      <div class="tc-controls" id="tc-controls" hidden>
+        <button class="tc-btn" id="tc-prev" type="button" aria-label="Previous quote">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg>
+        </button>
+        <button class="tc-btn" id="tc-toggle" type="button" aria-label="Pause automatic rotation">
+          <svg id="tc-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          <svg id="tc-icon-play" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <div class="tc-dots" id="tc-dots" role="tablist" aria-label="Choose a quote"></div>
+        <button class="tc-btn" id="tc-next" type="button" aria-label="Next quote">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -93,6 +144,98 @@
       <img class="footer-seal" src="images/ibt-seal.png" alt="International Brotherhood of Teamsters">
     </div>
   </footer>
+
+  <!-- Testimonial carousel -->
+  <script>
+  (function () {
+    var root = document.querySelector('.testimonial-section');
+    if (!root) return;
+    var viewport = root.querySelector('#tc-viewport');
+    var carousel = root.querySelector('.testimonial-carousel');
+    var slides = Array.prototype.slice.call(root.querySelectorAll('.tc-slide'));
+    var controls = root.querySelector('#tc-controls');
+    var index = 0;
+
+    // size the panel to the active quote
+    function fit() { viewport.style.height = slides[index].offsetHeight + 'px'; }
+
+    // per-quote dwell time: long quotes linger, short ones don't overstay
+    function dwellFor(slide) {
+      var words = (slide.textContent.trim().match(/\S+/g) || []).length;
+      return Math.min(18000, Math.max(7000, 4000 + words * 220));
+    }
+
+    // upgrade from the no-JS stacked fallback into the fading carousel
+    carousel.classList.add('tc-ready');
+    fit();
+    window.addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+
+    if (slides.length < 2) return;            // single quote => static, no controls
+    controls.hidden = false;
+
+    var dotsWrap = root.querySelector('#tc-dots');
+    var prev = root.querySelector('#tc-prev');
+    var next = root.querySelector('#tc-next');
+    var toggle = root.querySelector('#tc-toggle');
+    var iconPlay = root.querySelector('#tc-icon-play');
+    var iconPause = root.querySelector('#tc-icon-pause');
+
+    var timer = null;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var playing = !reduceMotion;
+
+    slides.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'tc-dot';
+      dot.type = 'button';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Quote ' + (i + 1) + ' of ' + slides.length);
+      dot.addEventListener('click', function () { goTo(i); restart(); });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+
+    function render() {
+      slides.forEach(function (s, i) { s.classList.toggle('is-active', i === index); });
+      dots.forEach(function (d, i) { d.setAttribute('aria-current', String(i === index)); });
+      fit();
+    }
+    function goTo(i) { index = (i + slides.length) % slides.length; render(); }
+
+    function schedule() {
+      clearTimeout(timer);
+      if (!playing) return;
+      timer = setTimeout(function () { goTo(index + 1); schedule(); }, dwellFor(slides[index]));
+    }
+    function start() {
+      playing = true;
+      viewport.setAttribute('aria-live', 'off');   // don't narrate auto-rotation
+      schedule();
+      iconPlay.hidden = true; iconPause.hidden = false;
+      toggle.setAttribute('aria-label', 'Pause automatic rotation');
+    }
+    function stop() {
+      playing = false;
+      clearTimeout(timer); timer = null;
+      viewport.setAttribute('aria-live', 'polite'); // announce manual changes
+      iconPlay.hidden = false; iconPause.hidden = true;
+      toggle.setAttribute('aria-label', 'Start automatic rotation');
+    }
+    function restart() { if (playing) schedule(); }
+
+    prev.addEventListener('click', function () { goTo(index - 1); restart(); });
+    next.addEventListener('click', function () { goTo(index + 1); restart(); });
+    toggle.addEventListener('click', function () { playing ? stop() : start(); });
+    root.addEventListener('mouseenter', function () { clearTimeout(timer); timer = null; });
+    root.addEventListener('mouseleave', function () { if (playing) schedule(); });
+    root.addEventListener('focusin', function () { clearTimeout(timer); timer = null; });
+    root.addEventListener('focusout', function () { if (playing) schedule(); });
+
+    render();
+    playing ? start() : stop();
+  })();
+  </script>
 
 </body>
 </html>
