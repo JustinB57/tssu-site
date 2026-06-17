@@ -62,11 +62,10 @@
       <h2>Print &amp; Post</h2>
       <p class="lead" style="margin-left: auto; margin-right: auto;">Help spread the word where you actually work. Download the flyer, print a few copies, and put them up in break rooms, on bulletin boards, and anywhere coworkers will see them. Every flyer posted is one more person who learns this effort includes them.</p>
 
-      <a href="downloads/TSSU_Info_Flyer.pdf" target="_blank" rel="noopener" aria-label="Open the TSSU flyer PDF in a new tab">
-        <img src="images/flyer-thumb.jpg"
-             alt="TSSU flyer: We Are Not Getting Left Behind &mdash; Join the Growing Movement. Teamsters Support Staff Union, standing together for fair pay, respect, and a real voice at work."
-             style="display:block; width:100%; max-width:340px; height:auto; margin:1.75rem auto; border:3px solid var(--pink); border-radius:4px; box-shadow:0 8px 30px rgba(0,0,0,0.25);">
-      </a>
+      <img id="flyer-thumb" src="images/flyer-thumb.jpg"
+           alt="TSSU flyer: We Are Not Getting Left Behind &mdash; Join the Growing Movement. Teamsters Support Staff Union, standing together for fair pay, respect, and a real voice at work. Click to enlarge."
+           style="display:block; width:100%; max-width:340px; height:auto; margin:1.75rem auto 0.75rem; border:3px solid var(--pink); border-radius:4px; box-shadow:0 8px 30px rgba(0,0,0,0.25); cursor:zoom-in;">
+      <p style="margin:0 0 1.5rem; font-size:0.9rem; opacity:0.7;">Tap the flyer to view it larger.</p>
 
       <a class="btn btn-primary" href="downloads/TSSU_Info_Flyer.pdf" download style="border-color: var(--pink);">Download flyer (PDF)</a>
     </div>
@@ -86,6 +85,28 @@
       <img class="footer-seal" src="images/ibt-seal.png" alt="International Brotherhood of Teamsters">
     </div>
   </footer>
+  <!-- Image lightbox (enlarges the flyer) -->
+  <div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="TSSU flyer, enlarged" id="lightbox-img">
+  </div>
+  <script>
+    (function(){
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      var thumb = document.getElementById('flyer-thumb');
+      if (thumb) {
+        thumb.addEventListener('click', function(){
+          lbImg.src = 'images/flyer-large.jpg';
+          lbImg.alt = this.alt;
+          lb.classList.add('open');
+        });
+      }
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') lb.classList.remove('open');
+      });
+    })();
+  </script>
 
 </body>
 </html>
