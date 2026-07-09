@@ -439,11 +439,16 @@ a { color: var(--pink-dark); }
 
 /* ---------- Featured event flyer ---------- */
 .featured-event {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
   margin-bottom: 3rem;
 }
 .featured-event img {
-  max-width: 460px;
+  flex: 0 1 420px;
+  max-width: 420px;
   width: 100%;
   height: auto;
   border: 3px solid var(--pink);
