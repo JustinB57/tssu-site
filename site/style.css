@@ -204,6 +204,31 @@ a { color: var(--pink-dark); }
   box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
 .union-diff-graphic a { display: inline-block; }
+
+/* Two graphics side by side, centered together */
+.union-diff-graphic.two-up {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.union-diff-graphic.two-up .diff-item {
+  flex: 1 1 340px;
+  max-width: 520px;
+  text-align: center;
+}
+.union-diff-graphic.two-up .diff-item img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+.info-sessions-intro {
+  text-align: center;
+  margin: 0 auto 1rem;
+  font-weight: 600;
+}
+
 .card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
 .card p { color: #444; font-size: 1rem; }
 
