@@ -39,7 +39,7 @@ a { color: var(--pink-dark); }
 
 /* ---------- Header ---------- */
 .site-header {
-  background: var(--black);
+  background: #231f20; /* matches TSSU logo background for a seamless header */
   border-bottom: 4px solid var(--pink);
   position: sticky;
   top: 0;
