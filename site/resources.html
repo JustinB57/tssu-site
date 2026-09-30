@@ -15,7 +15,10 @@
       <a class="brand" href="index.html">
         <img src="images/tssu-logo.png" alt="Teamsters Support Staff Union">
       </a>
-      <div class="header-right">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="header-right" id="primary-nav">
         <nav class="main-nav">
           <a href="index.html">Home</a>
           <a href="index.html#why">The Union Difference</a>
@@ -28,6 +31,22 @@
       </div>
     </div>
   </header>
+
+  <!-- Mobile nav toggle -->
+  <script>
+    (function(){
+      var h=document.querySelector(".site-header");
+      var btn=h&&h.querySelector(".nav-toggle");
+      if(!btn)return;
+      btn.addEventListener("click",function(){
+        var open=h.classList.toggle("nav-open");
+        btn.setAttribute("aria-expanded",open?"true":"false");
+      });
+      h.querySelectorAll(".main-nav a").forEach(function(a){
+        a.addEventListener("click",function(){h.classList.remove("nav-open");btn.setAttribute("aria-expanded","false");});
+      });
+    })();
+  </script>
 
   <!-- Page hero -->
   <section class="page-hero">

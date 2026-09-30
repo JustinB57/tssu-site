@@ -253,14 +253,16 @@ a { color: var(--pink-dark); }
   margin-bottom: 1rem;
 }
 .fb-embed {
-  display: flex;
-  justify-content: center;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.fb-embed iframe {
   width: 100%;
   max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.fb-embed iframe {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  border: none;
 }
 
 .card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
@@ -589,12 +591,63 @@ a { color: var(--pink-dark); }
   line-height: 1;
 }
 
+/* ---------- Mobile nav toggle (hamburger) ---------- */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 720px) {
-  .header-inner { flex-wrap: wrap; }
+  .header-inner { flex-wrap: wrap; align-items: center; }
   .main-nav { gap: 1rem; font-size: 0.8rem; }
   .ibt-seal { height: 46px; }
   .brand img { height: 48px; }
   .header-right { gap: 1rem; }
   .hero { padding: 4rem 1.5rem 5rem; }
+
+  /* Show hamburger, collapse the nav into a dropdown */
+  .nav-toggle { display: flex; margin-left: auto; order: 2; }
+  .header-right {
+    display: none;
+    order: 3;
+    flex-basis: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 0.5rem;
+  }
+  .site-header.nav-open .header-right { display: flex; }
+  .main-nav { flex-direction: column; width: 100%; gap: 0; }
+  .main-nav a {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 0.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .main-nav .nav-cta { margin-top: 0.75rem; text-align: center; border-top: 0; }
+  .header-right .ibt-seal { display: none; }
+
+  /* Animate hamburger into an X when open */
+  .site-header.nav-open .nav-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .site-header.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .site-header.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
